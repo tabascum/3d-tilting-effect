@@ -1,0 +1,65 @@
+:root {
+  --white: hsl(334, 7%, 95%);
+}
+
+body {
+  background: hsl(224, 32%, 12%);
+  background-image: conic-gradient(
+    from 0deg at 50% 50%,
+    blue,
+    purple,
+    purple,
+    blue
+  );
+  background-blend-mode: multiply;
+  min-block-size: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+pre {
+  background: var(--white);
+  border-radius: 50rem;
+  box-sizing: border-box;
+
+  position: relative;
+
+  display: inherit;
+  max-width: 15%;
+  aspect-ratio: 2/2;
+  place-items: inherit;
+
+  transform-style: preserve-3d;
+  transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+}
+
+pre::before,
+pre::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+}
+
+/* shadow */
+pre::before {
+  inset: 0.75rem;
+  border-radius: inherit;
+  background: black;
+  z-index: -1;
+  transform: translateZ(-50px);
+  filter: blur(15px);
+  opacity: 0.9;
+}
+
+/* gradient thingy */
+pre::after {
+  z-index: -2;
+  inset: -1rem;
+  background: linear-gradient(-45deg, teal, darkgreen);
+  transform: translateZ(-50px);
+}
+
+img {
+  max-width: 100%;
+  border-radius: 50%;
+}
